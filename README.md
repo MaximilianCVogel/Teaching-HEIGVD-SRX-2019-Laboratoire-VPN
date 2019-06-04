@@ -94,6 +94,8 @@ Un « protocol » différent de `up` indique la plupart du temps que l’interfa
 
 **Réponse :**  
 
+Non, toutes les interfaces utilisées sont up et leurs ip respectives sont les bonnes.
+
 ---
 
 
@@ -131,6 +133,8 @@ Pour votre topologie il est utile de contrôler la connectivité entre :
 
 **Réponse :**  
 
+Non, on a réussi à effectuer tous les pings demandés.
+
 ---
 
 - Activation de « debug » et analyse des messages ping.
@@ -153,6 +157,8 @@ Pour déclencher et pratiquer les captures vous allez « pinger » votre routeur
 ---
 
 **Screenshots :**  
+
+
 
 ---
 
@@ -243,7 +249,7 @@ Nous allons maintenant configurer IPsec de manière identique sur les deux route
 | Paramètre      | Valeur                                  |
 |----------------|-----------------------------------------|
 | IPsec avec IKE | IPsec utilisera IKE pour générer ses SA |
-| Encryption     | AES 192 bits                            |
+| Encryption     | AES 192 bits				   |
 | Signature      | Basée sur SHA-1                         |
 | Proxy ID R1    | 172.16.1.0/24                           |
 | Proxy ID R2    | 172.17.1.0/24                           |
