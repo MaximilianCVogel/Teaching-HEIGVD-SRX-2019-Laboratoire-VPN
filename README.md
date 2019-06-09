@@ -158,7 +158,8 @@ Pour déclencher et pratiquer les captures vous allez « pinger » votre routeur
 
 **Screenshots :**  
 
-
+![Screenshot 1](images/Q3.png)
+![Screenshot 2](images/Q3_2.png)
 
 ---
 
@@ -231,6 +232,16 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 
 **Réponse :**  
 
+![Images de la Q4](images/Q4_R1.png)  
+
+**Policy 20:** Le chiffrement utilisé est `AES256`, l'algorithme de hashage est `MD5`, la clé est pré-paratgée et les lifetime correspondent à notre configuration.
+
+![Images de la Q4_2](images/Q4_R2.png)  
+
+**Policy 10:** Le chiffrement utilisé est `Triple DES`, l'algorithme de hashage est `MD5`, la clé est pré-paratgée et les lifetime correspondent à notre configuration.  
+
+**Policy 20:** Elle correspond à la policy 20 de R1.  
+
 ---
 
 
@@ -239,6 +250,11 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 ---
 
 **Réponse :**  
+
+![Images de la Q5](images/Q5_R1.png)  
+![Images de la Q5_2](images/Q5_R2.png)  
+
+La clé partagée est `cisco-1` et chaque configuration fait référence à son correspondant.  
 
 ---
 
@@ -333,6 +349,12 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 
 **Réponse :**  
 
+![Image de la Q6](images/Q6_showCryptoMap_isakmpON.png)  
+
+![Capture Q6](images/Q6_Capture.png)  
+
+On utilise apparement `RIPv2` pour acheminer les paquets. `RIPv2` est un protocole de routage dynamique.
+
 ---
 
 **Question 7: Reportez dans votre rapport une petite explication concernant les différents « timers » utilisés par IKE et IPsec dans cet exercice (recherche Web). :**
@@ -340,6 +362,15 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 ---
 
 **Réponse :**  
+
+Il y a 3 timers différents:  
++ `ISAKMP lifetime`: Défini le nombre de secondes avant l'expiration de la security association.
++ `Security Association IDLE-TIME`: La durée d'inactivité d'un peer avant que les ressources liées à sa SA soient libérées.
++ `Security Association Lifetime Seconds`: Ecrase la configuration glovale IPSec pour spécifier une configuration locale.
+
+**Source:**  
+https://www.cisco.com/en/US/docs/ios-xml/ios/sec_conn_dplane/configuration/15-1s/sec-ipsec-idle-tmrs.html#GUID-7705981F-E425-4E72-B0A4-11394256F4FC   
+https://www.cisco.com/c/en/us/td/docs/ios/12_2/security/command/reference/srfipsec.html#wp1018885   
 
 ---
 
@@ -355,6 +386,12 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
++ `IKE`: Permet de définir la security association entre les peers.
++ `ESP`: Fourni la confidentialité, l'authentification et l'intégrité du paquet. Il chiffre la totalité des données du paquets
+
+**Source:**  
+https://learningnetwork.cisco.com/thread/41125
+
 ---
 
 
@@ -363,6 +400,8 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 ---
 
 **Réponse :**  
+
+En mode tunnel, car cela a été défini tel quel lors de la configuration IPSec.
 
 ---
 
@@ -373,6 +412,10 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
+![Image du cours](images/mode_tunnel.png)
+
+L'algorithme de chiffrement est `AES256`.
+
 ---
 
 
@@ -382,6 +425,8 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
+Le paquet entier sauf la nouvelle en-tête est authentifié. L'algorithme d'authentification est `SHA`, cette information provient de la configuration.
+
 ---
 
 
@@ -390,5 +435,7 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 ---
 
 **Réponse :**  
+
+Le paquet entier sauf la nouvelle en-tête est vérifé en intégrité. L'algorithme d'intégrité est `HMAC-SHA1`. 
 
 ---
