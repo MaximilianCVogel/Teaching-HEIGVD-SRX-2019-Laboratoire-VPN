@@ -414,7 +414,7 @@ En mode tunnel, car cela a été défini tel quel lors de la configuration IPSec
 
 ![Image du cours](images/mode_tunnel.png)
 
-L'algorithme de chiffrement est `AES256`.
+L'algorithme de chiffrement est `AES192`.
 
 ---
 
@@ -425,7 +425,7 @@ L'algorithme de chiffrement est `AES256`.
 
 **Réponse :**  
 
-Le paquet entier sauf la nouvelle en-tête est authentifié. L'algorithme d'authentification est `SHA`, cette information provient de la configuration.
+Le paquet entier sauf la nouvelle en-tête est authentifié. L'algorithme d'authentification est `HMAC-SHA1`, cette information provient de la configuration.
 
 ---
 
